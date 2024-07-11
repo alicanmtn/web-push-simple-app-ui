@@ -1,5 +1,5 @@
 self.addEventListener("push", (event) => {
-  console.log(event.data.json());
+  console.log(event.data.text());
 
   var data = "";
   if (event.data) {
