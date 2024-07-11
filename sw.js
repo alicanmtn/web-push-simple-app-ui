@@ -10,6 +10,7 @@ self.addEventListener("push", (e) => {
       dateOfArrival: Date.now(),
       primaryKey: "3",
     },
+    icon: "images/logo.png",
   };
 
   e.waitUntil(
