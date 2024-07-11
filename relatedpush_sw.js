@@ -23,11 +23,5 @@ self.addEventListener("push", (event) => {
     icon: "images/logo.png",
     requireInteraction: true,
   };
-
-  try {
-    event.waitUntil(self.registration.showNotification(title, config));
-  } catch (error) {
-    console.log(error);
-    self.registration.showNotification(title, config);
-  }
+  event.waitUntil(self.registration.showNotification(title, config));
 });
