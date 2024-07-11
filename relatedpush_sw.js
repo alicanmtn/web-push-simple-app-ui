@@ -19,7 +19,7 @@ self.addEventListener("install", function (event) {
 });
 
 self.addEventListener("push", function (event) {
-  console.log(event);
+  console.log(event.data.json());
 
   var data = "";
   if (event.data) {
