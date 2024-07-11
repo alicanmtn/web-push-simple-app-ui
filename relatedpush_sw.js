@@ -20,6 +20,8 @@ self.addEventListener("push", (event) => {
   };
   var title = data.notification.title;
   try {
+    event.waitUntil(self.registration.showNotification("Title", options));
+
     event.waitUntil(self.registration.showNotification(title, options));
   } catch (error) {
     console.log(error);
