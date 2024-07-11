@@ -1,6 +1,3 @@
-//sunucu üzerinden gelecek notificationları bize gösterecek yer
-
-//bir push eventi meydana gelince bana bunu ver
 self.addEventListener("push", (e) => {
   console.log("e.data.text() => ", e.data.text());
 
