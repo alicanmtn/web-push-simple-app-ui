@@ -24,8 +24,8 @@ self.addEventListener("push", function (event) {
   var data = "";
   if (event.data) {
     data = event.data.json();
-    if (data && data.notification && typeof data.notification == "string") {
-      data.notification = JSON.parse(data.notification);
+    if (data.data && data.data.notification) {
+      data.notification = data.data.notification;
     }
   } else {
     console.log("notification payload error.");
