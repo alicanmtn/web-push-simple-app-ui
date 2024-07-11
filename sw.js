@@ -11,6 +11,16 @@ self.addEventListener("push", (e) => {
       primaryKey: "3",
     },
     icon: "images/logo.png",
+    actions: [
+      {
+        action: "explore",
+        title: "Action 1",
+      },
+      {
+        action: "close",
+        title: "Bildirimleri Kapat",
+      },
+    ],
   };
 
   e.waitUntil(
