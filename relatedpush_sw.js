@@ -21,7 +21,6 @@ self.addEventListener("push", (event) => {
     },
     body: message || "mesaj içeriği mi hataya yol açıyor??",
     icon: "images/logo.png",
-    requireInteraction: true,
   };
   event.waitUntil(self.registration.showNotification(title, config));
 });
