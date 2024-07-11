@@ -23,5 +23,5 @@ self.addEventListener("push", (event) => {
     icon: "images/logo.png",
     requireInteraction: true,
   };
-  event.waitUntil(self.registration.showNotification(title, config));
+  event.waitUntil(self.registration.showNotification("hata bursı mı?", config));
 });
