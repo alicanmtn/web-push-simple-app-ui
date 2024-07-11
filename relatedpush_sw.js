@@ -19,9 +19,9 @@ self.addEventListener("push", (event) => {
       dateOfArrival: Date.now(),
       primaryKey: "3",
     },
-    body: message,
+    body: message || "mesaj içeriği mi hataya yol açıyor??",
     icon: "images/logo.png",
     requireInteraction: true,
   };
-  event.waitUntil(self.registration.showNotification("hata bursı mı?", config));
+  event.waitUntil(self.registration.showNotification(title, config));
 });
