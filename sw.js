@@ -2,7 +2,7 @@
 
 //bir push eventi meydana gelince bana bunu ver
 self.addEventListener("push", (e) => {
-  console.log("e => ", e);
+  console.log("e.data.text() => ", e.data.text());
 
   const config = {
     body: e.data.text() || "Mesaj içeriği burada yer alıyor.",
