@@ -5,7 +5,7 @@ self.addEventListener("push", (e) => {
   console.log("e => ", e);
 
   const config = {
-    body: e.data.text || "Mesaj içeriği burada yer alıyor.",
+    body: e.data.text() || "Mesaj içeriği burada yer alıyor.",
     data: {
       dateOfArrival: Date.now(),
       primaryKey: "3",
