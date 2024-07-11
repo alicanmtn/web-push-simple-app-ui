@@ -14,11 +14,13 @@ self.addEventListener("push", (e) => {
     actions: [
       {
         action: "explore",
-        title: "Action 1",
+        title: "Action1",
+        // icon: "images/"
       },
       {
         action: "close",
-        title: "Bildirimleri Kapat",
+        title: "Bildirimi Kapat",
+        // icon:
       },
     ],
   };
