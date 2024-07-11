@@ -1,23 +1,3 @@
-"use strict";
-var retentionUrl = "https://pushr.euromsg.com/retention";
-
-var version = "1.6";
-
-var postToServer = function (endpoint, body) {
-  fetch(endpoint, {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-};
-
-self.addEventListener("install", function (event) {
-  self.skipWaiting();
-});
-
 self.addEventListener("push", function (event) {
   console.log(event.data.json());
 
@@ -46,73 +26,5 @@ self.addEventListener("push", function (event) {
   } catch (error) {
     console.log(error);
     self.registration.showNotification(title, options);
-  }
-});
-
-self.addEventListener("notificationclick", function (event) {
-  event.notification.close();
-  var url = event.notification.data.url;
-  var pushId = event.notification.data.pushId;
-  var button_identifier = "";
-  var isCloseAction = false;
-  if (event.action) {
-    var selectedAction = event.notification.data.actions.find(function (
-      action
-    ) {
-      return action.action == event.action;
-    });
-    if (selectedAction && selectedAction.url && clients.openWindow) {
-      clients.openWindow(selectedAction.url);
-    } else {
-      isCloseAction = true;
-    }
-    button_identifier = event.action;
-  }
-  postToServer(retentionUrl, {
-    pushId: pushId,
-    status: "O",
-    button_identifier: button_identifier,
-  });
-  if (!isCloseAction) {
-    try {
-      event.waitUntil(
-        clients
-          .matchAll({
-            type: "window",
-          })
-          .then(function (windowClients) {
-            for (var i = 0; i < windowClients.length; i++) {
-              var client = windowClients[i];
-              console.log("WindowClient", client);
-              if (client.url === url && "focus" in client) {
-                return client.focus();
-              }
-            }
-            if (clients.openWindow) {
-              return clients.openWindow(url);
-            }
-          })
-      );
-    } catch (error) {
-      console.log(error);
-      event.waitUntil(
-        clients
-          .matchAll({
-            type: "window",
-          })
-          .then(function (windowClients) {
-            for (var i = 0; i < windowClients.length; i++) {
-              var client = windowClients[i];
-              console.log("WindowClient", client);
-              if (client.url === url && "focus" in client) {
-                return client.focus();
-              }
-            }
-            if (clients.openWindow) {
-              return clients.openWindow(url);
-            }
-          })
-      );
-    }
   }
 });
