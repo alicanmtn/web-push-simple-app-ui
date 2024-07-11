@@ -5,7 +5,7 @@ self.addEventListener("push", (e) => {
   console.log("e => ", e);
 
   const config = {
-    body: "mesaj içeriği burada yer alacak.",
+    body: e.data.text || "Mesaj içeriği burada yer alıyor.",
     data: {
       dateOfArrival: Date.now(),
       primaryKey: "3",
@@ -13,6 +13,6 @@ self.addEventListener("push", (e) => {
   };
 
   e.waitUntil(
-    self.registration.showNotification("Yeni Makale Eklendi!!", config)
+    self.registration.showNotification("Burası Notification Başlığı..", config)
   );
 });
