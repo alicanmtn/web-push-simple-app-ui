@@ -12,8 +12,5 @@ window.addEventListener("load", async () => {
       applicationServerKey:
         "BADjUo07NGwAYB8hW3eaHbFgg-7JRo_NrCrXRzvd4n2ypR86KiXb9Pu5p6yVoeO9jdUWNGQMfRlewxpQ3FvJs98",
     });
-
-    console.log(clientId);
-    console.log(JSON.stringify(clientId));
   });
 });

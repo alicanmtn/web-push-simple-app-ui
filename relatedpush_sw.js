@@ -12,6 +12,10 @@ self.addEventListener("push", function (event) {
     return 0;
   }
   var options = {
+    data: {
+      dateOfArrival: Date.now(),
+      primaryKey: "3",
+    },
     body: data.notification.message,
     icon: data.notification.icon,
     tag: data.notification.tag,
