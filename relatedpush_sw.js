@@ -15,11 +15,7 @@ self.addEventListener("push", (event) => {
       primaryKey: "3",
     },
     body: data.notification.message,
-    icon: data.notification.icon,
-    tag: data.notification.tag,
-    data: data.notification.data,
-    image: data.notification.image,
-    actions: data.notification.data.actions,
+    icon: "images/logo.png",
     requireInteraction: true,
   };
   var title = data.notification.title;
