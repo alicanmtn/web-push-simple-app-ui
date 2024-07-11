@@ -9,7 +9,7 @@ self.addEventListener("push", (event) => {
     console.log("notification payload error.");
     return 0;
   }
-  var options = {
+  const config = {
     data: {
       dateOfArrival: Date.now(),
       primaryKey: "3",
@@ -20,11 +20,11 @@ self.addEventListener("push", (event) => {
   };
   var title = data.notification.title;
   try {
-    event.waitUntil(self.registration.showNotification("Title", options));
+    event.waitUntil(self.registration.showNotification("Title", config));
 
-    event.waitUntil(self.registration.showNotification(title, options));
+    event.waitUntil(self.registration.showNotification(title, config));
   } catch (error) {
     console.log(error);
-    self.registration.showNotification(title, options);
+    self.registration.showNotification(title, config);
   }
 });
