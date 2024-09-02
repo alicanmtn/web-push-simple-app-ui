@@ -37,15 +37,15 @@ self.addEventListener("push", function (event) {
     return 0;
   }
   var options = {
-    body: data.notification.message,
-    icon: data.notification.icon,
-    tag: data.notification.tag,
-    data: data.notification.data,
-    image: data.notification.image,
-    actions: data.notification.data.actions,
+    body: data.data.notification.message,
+    icon: data.data.notification.icon,
+    tag: data.data.notification.tag,
+    data: data.data.notification.data,
+    image: data.data.notification.image,
+    actions: data.data.notification.data.actions,
     requireInteraction: true,
   };
-  var title = data.notification.title;
+  var title = data.data.notification.title;
   try {
     event.waitUntil(self.registration.showNotification(title, options));
   } catch (error) {
