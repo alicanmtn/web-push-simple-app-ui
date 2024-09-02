@@ -1,26 +1,123 @@
-self.addEventListener("push", (event) => {
-  console.log(event.data.text());
+"use strict";
+const retentionUrl = "https://pushr.euromsg.com/retention";
 
+const version = "1.6";
+
+const postToServer = function (endpoint, body) {
+  fetch(endpoint, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+};
+
+self.addEventListener("install", function (event) {
+  self.skipWaiting();
+});
+self.addEventListener("activate", function (event) {});
+
+self.addEventListener("message", function (event) {});
+
+self.addEventListener("push", function (event) {
   var data = "";
   if (event.data) {
     data = event.data.json();
-    if (data.data && data.data.notification) {
-      data.notification = data.data.notification;
+    if (
+      data.data &&
+      data.data.notification &&
+      typeof data.data.notification == "string"
+    ) {
+      data.notification = JSON.parse(data.data.notification);
     }
   } else {
     console.log("notification payload error.");
     return 0;
   }
-
-  const title = data.notification.title;
-  const message = data.notification.message;
-  const config = {
-    data: {
-      dateOfArrival: Date.now(),
-      primaryKey: "3",
-    },
-    body: message || "mesaj içeriği mi hataya yol açıyor??",
-    icon: "images/logo.png",
+  var options = {
+    body: data.notification.message,
+    icon: data.notification.icon,
+    tag: data.notification.tag,
+    data: data.notification.data,
+    image: data.notification.image,
+    actions: data.notification.data.actions,
+    requireInteraction: true,
   };
-  event.waitUntil(self.registration.showNotification(title, config));
+  var title = data.notification.title;
+  try {
+    event.waitUntil(self.registration.showNotification(title, options));
+  } catch (error) {
+    console.log(error);
+    self.registration.showNotification(title, options);
+  }
+});
+
+self.addEventListener("notificationclick", function (event) {
+  event.notification.close();
+  var url = event.notification.data.url;
+  var pushId = event.notification.data.pushId;
+  var button_identifier = "";
+  var isCloseAction = false;
+  if (event.action) {
+    var selectedAction = event.notification.data.actions.find(function (
+      action
+    ) {
+      return action.action == event.action;
+    });
+    if (selectedAction && selectedAction.url && clients.openWindow) {
+      clients.openWindow(selectedAction.url);
+    } else {
+      isCloseAction = true;
+    }
+    button_identifier = event.action;
+  }
+  postToServer(retentionUrl, {
+    pushId: pushId,
+    status: "O",
+    button_identifier: button_identifier,
+  });
+  if (!isCloseAction) {
+    try {
+      event.waitUntil(
+        clients
+          .matchAll({
+            type: "window",
+          })
+          .then(function (windowClients) {
+            for (var i = 0; i < windowClients.length; i++) {
+              var client = windowClients[i];
+              console.log("WindowClient", client);
+              if (client.url === url && "focus" in client) {
+                return client.focus();
+              }
+            }
+            if (clients.openWindow) {
+              return clients.openWindow(url);
+            }
+          })
+      );
+    } catch (error) {
+      console.log(error);
+      event.waitUntil(
+        clients
+          .matchAll({
+            type: "window",
+          })
+          .then(function (windowClients) {
+            for (var i = 0; i < windowClients.length; i++) {
+              var client = windowClients[i];
+              console.log("WindowClient", client);
+              if (client.url === url && "focus" in client) {
+                return client.focus();
+              }
+            }
+            if (clients.openWindow) {
+              return clients.openWindow(url);
+            }
+          })
+      );
+    }
+  }
 });
