@@ -46,19 +46,17 @@ self.addEventListener("push", function (event) {
     requireInteraction: true,
   };
   let title = data.data.notification.title;
-  try {
-    event
-      .waitUntil(self.registration.showNotification(title, options))
+
+  event.waitUntil(
+    self.registration
+      .showNotification(title, options)
       .then(() => {
         console.log("Bildirim başarıyla gösterildi.");
       })
-      .catch((error) => {
+      .catch((err) => {
         console.error("Bildirim gösterilemedi:", error);
-      });
-  } catch (error) {
-    console.log(error);
-    self.registration.showNotification(title, options);
-  }
+      })
+  );
 });
 
 self.addEventListener("notificationclick", function (event) {
