@@ -42,8 +42,8 @@ self.addEventListener("push", (event) => {
     tag: data.data.notification.tag,
     data: data.data.notification.data,
     image: data.data.notification.image,
-    //actions: data.data.notification.data.actions,
-    requireInteraction: true,
+    actions: data.data.notification.data.actions,
+    //requireInteraction: true,
   };
   let title = data.data.notification.title;
   event.waitUntil(

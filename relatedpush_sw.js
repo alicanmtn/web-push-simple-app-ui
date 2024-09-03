@@ -43,7 +43,7 @@ self.addEventListener("push", function (event) {
     data: data.data.notification.data,
     image: data.data.notification.image,
     actions: data.data.notification.data.actions,
-    requireInteraction: true,
+    //requireInteraction: true,
   };
   let title = data.data.notification.title;
 
