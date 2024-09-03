@@ -22,7 +22,7 @@ self.addEventListener("activate", function (event) {});
 self.addEventListener("message", function (event) {});
 
 self.addEventListener("push", function (event) {
-  var data = "";
+  let data = "";
   if (event.data) {
     data = event.data.json();
     if (
@@ -36,7 +36,7 @@ self.addEventListener("push", function (event) {
     console.log("notification payload error.");
     return 0;
   }
-  var options = {
+  let options = {
     body: data.data.notification.message,
     icon: data.data.notification.icon,
     tag: data.data.notification.tag,
@@ -45,9 +45,13 @@ self.addEventListener("push", function (event) {
     actions: data.data.notification.data.actions,
     requireInteraction: true,
   };
-  var title = data.data.notification.title;
+  let title = data.data.notification.title;
   try {
-    event.waitUntil(self.registration.showNotification(title, options));
+    navigator.serviceWorker.ready.then((registration) => {
+      registration.showNotification(title, options);
+    });
+
+    //event.waitUntil(self.registration.showNotification(title, options));
   } catch (error) {
     console.log(error);
     self.registration.showNotification(title, options);
