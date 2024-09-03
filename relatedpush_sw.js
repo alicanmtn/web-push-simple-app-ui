@@ -47,7 +47,11 @@ self.addEventListener("push", function (event) {
   };
   let title = data.data.notification.title;
   try {
-    event.waitUntil(self.registration.showNotification(title, options));
+    event
+      .waitUntil(self.registration.showNotification(title, options))
+      .catch((err) => {
+        console.log("showNotification sırasında hata meydana geldi!", err);
+      });
   } catch (error) {
     console.log(error);
     self.registration.showNotification(title, options);
