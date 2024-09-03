@@ -22,19 +22,20 @@ window.addEventListener("load", async () => {
 
   subscribeButton.addEventListener("click", async () => {
     const serviceWorker = await navigator.serviceWorker.ready;
+
     const SERVERKEY =
       "BK3BKsyBoxXPQs8ID2OP1DkOhZOu7U_sNeKVJP-j75xSWzgdYosdYp9UyjUWA0-YgTsCX1KdU0qMxIOLBc1vMNU";
-    const clientId = await serviceWorker.pushManager
-      .subscribe({
+
+    try {
+      const clientId = await serviceWorker.pushManager.subscribe({
         userVisibleOnly: true,
         applicationServerKey: urlB64ToUint8Array(SERVERKEY),
-      })
-      .then(() => {
-        console.log(clientId);
-        console.log(JSON.stringify(clientId));
-      })
-      .catch((err) => {
-        console.log("Hata meydana geldi, ", err);
       });
+
+      console.log(clientId);
+      console.log(JSON.stringify(clientId));
+    } catch (error) {
+      console.log("Hata meydana geldi, ", err);
+    }
   });
 });
