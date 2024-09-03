@@ -47,11 +47,7 @@ self.addEventListener("push", function (event) {
   };
   let title = data.data.notification.title;
   try {
-    navigator.serviceWorker.ready.then((registration) => {
-      registration.showNotification(title, options);
-    });
-
-    //event.waitUntil(self.registration.showNotification(title, options));
+    event.waitUntil(self.registration.showNotification(title, options));
   } catch (error) {
     console.log(error);
     self.registration.showNotification(title, options);
