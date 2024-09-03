@@ -10,7 +10,10 @@ window.addEventListener("load", async () => {
     const clientId = await serviceWorker.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey:
-        "BADjUo07NGwAYB8hW3eaHbFgg-7JRo_NrCrXRzvd4n2ypR86KiXb9Pu5p6yVoeO9jdUWNGQMfRlewxpQ3FvJs98",
+        "BK3BKsyBoxXPQs8ID2OP1DkOhZOu7U_sNeKVJP-j75xSWzgdYosdYp9UyjUWA0-YgTsCX1KdU0qMxIOLBc1vMNU",
     });
+
+    console.log(clientId);
+    console.log(JSON.stringify(clientId));
   });
 });
