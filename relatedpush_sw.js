@@ -49,8 +49,11 @@ self.addEventListener("push", function (event) {
   try {
     event
       .waitUntil(self.registration.showNotification(title, options))
-      .catch((err) => {
-        console.log("showNotification sırasında hata meydana geldi!", err);
+      .then(() => {
+        console.log("Bildirim başarıyla gösterildi.");
+      })
+      .catch((error) => {
+        console.error("Bildirim gösterilemedi:", error);
       });
   } catch (error) {
     console.log(error);
