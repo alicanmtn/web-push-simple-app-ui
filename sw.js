@@ -46,7 +46,7 @@ self.addEventListener("push", (event) => {
     requireInteraction: true,
   };
   let title = data.data.notification.title;
-  e.waitUntil(
+  event.waitUntil(
     self.registration.showNotification("Burası Notification Başlığı..", options)
   );
 });
