@@ -54,7 +54,7 @@ self.addEventListener("push", function (event) {
         console.log("Bildirim başarıyla gösterildi.");
       })
       .catch((err) => {
-        console.error("Bildirim gösterilemedi:", error);
+        console.error("Bildirim gösterilemedi:", err);
       })
   );
 });
