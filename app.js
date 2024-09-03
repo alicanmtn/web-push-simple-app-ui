@@ -35,7 +35,7 @@ window.addEventListener("load", async () => {
       console.log(clientId);
       console.log(JSON.stringify(clientId));
     } catch (error) {
-      console.log("Hata meydana geldi, ", err);
+      console.log("Hata meydana geldi, ", error);
     }
   });
 });
