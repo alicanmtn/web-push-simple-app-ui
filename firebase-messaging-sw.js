@@ -4,8 +4,8 @@
 //import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
 //import { firebase } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-messaging.js";
 
-importScripts("/firebaseJs/firebase-app.js");
-importScripts("/firebaseJs/firebase-messaging.js");
+//importScripts("/firebaseJs/firebase-app.js");
+//importScripts("/firebaseJs/firebase-messaging.js");
 
 //firebase.initializeApp({
 //    apiKey: "YOUR_API_KEY",
