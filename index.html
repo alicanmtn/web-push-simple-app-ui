@@ -14,8 +14,13 @@
           <button id="subscribeButton">Abone Ol</button>
       </div>
       <script src="app.js"></script>
-      <script type="module" src="app.js"></script>
-      <script type="module" src="/firebaseJs/firebase-app.js"></script>
+
+      <script type="module">
+          import { initializeApp } from '/firebaseJs/firebase-app.js'
+      </script>
+
+      <script type="module" src="firebase-messaging-sw.js"></script>
+      <!--<script type="module" src="/firebaseJs/firebase-app.js"></script>-->
       <script type="module" src="/firebaseJs/firebase-messaging.js"></script>
   </body>
 </html>
