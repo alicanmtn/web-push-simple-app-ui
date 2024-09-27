@@ -2,7 +2,7 @@ window.addEventListener("load", async () => {
   const subscribeButton = document.querySelector("#subscribeButton");
 
   //register service worker
-  const sW = await navigator.serviceWorker.register("./relatedpush_sw.js");
+    const sW = await navigator.serviceWorker.register("./firebase-messaging-sw.js");
   console.log("Service Worker => ", sW);
 
   let urlB64ToUint8Array = (base64String) => {
