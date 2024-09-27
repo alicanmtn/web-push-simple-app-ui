@@ -31,17 +31,19 @@ firebase.initializeApp({
 });
 
 const messaging = firebase.messaging();
+let token = messaging.getToken();
 
-Notification.requestPermission().then(permission => {
-    if (permission === 'granted') {
-        console.log('Bildirim izni verildi.');
-        let token = messaging.getToken();
 
-        // Token alma ve sunucuya gönderme işlemleri
-    } else {
-        console.log('Bildirim izni verilmedi.');
-    }
-});
+//Notification.requestPermission().then(permission => {
+//    if (permission === 'granted') {
+//        console.log('Bildirim izni verildi.');
+        
+
+//        // Token alma ve sunucuya gönderme işlemleri
+//    } else {
+//        console.log('Bildirim izni verilmedi.');
+//    }
+//});
 
 
 //messaging.requestPermission().then(function () {
