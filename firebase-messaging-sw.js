@@ -33,6 +33,7 @@ firebase.initializeApp({
 const messaging = firebase.messaging();
 let token = messaging.getToken();
 
+console.log(token);
 
 //Notification.requestPermission().then(permission => {
 //    if (permission === 'granted') {
