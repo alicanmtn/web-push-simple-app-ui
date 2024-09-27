@@ -12,18 +12,20 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
+messaging.requestPermission().then(function () {
+    console.log('Bildirim izni alındı.');
+    return messaging.getToken();
+}).then(function (token) {
+    console.log('Cihaz tokenı:', token);
+    // Tokenı sunucuya gönderme işlemi
+}).catch(function (err) {
+    console.log('Bildirim iznine erişilemedi:', err);
+});
+
 Notification.requestPermission().then(permission => {
     if (permission === 'granted') {
         console.log('Bildirim izni verildi.');
-        messaging.requestPermission().then(function () {
-            console.log('Bildirim izni alındı.');
-            return messaging.getToken();
-        }).then(function (token) {
-            console.log('Cihaz tokenı:', token);
-            // Tokenı sunucuya gönderme işlemi
-        }).catch(function (err) {
-            console.log('Bildirim iznine erişilemedi:', err);
-        });
+        // Token alma ve sunucuya gönderme işlemleri
     } else {
         console.log('Bildirim izni verilmedi.');
     }
