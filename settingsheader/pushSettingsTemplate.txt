@@ -1,0 +1,50 @@
+var settingsRD = {
+    defaultCookie:"#defaultCookie#",
+    webSiteAddress:"#webSiteAddress#",
+    relatedAppAlias:"#relatedAppAlias#",
+    relatedAppSafariAlias:"#relatedAppSafariAlias#",
+    rdWebSitePushID:"#rdWebSitePushID#",
+    brandedSubDomain:"#brandedSubDomain#",
+    safariPushApi:"#safariPushApi#",
+    subscriptionUrl: "#subscriptionUrl#",
+    defaultLanguage:"#defaultLanguage#",
+    defaultTitle:"#defaultTitle#",
+    defaultMessage:"#defaultMessage#",
+    defaultIcon:"#defaultIcon#",
+    isHttp: #isHttp#,
+    autoRegister: #autoRegister#,
+    isOptIn: #isOptIn#,
+    optInNotify: {
+        theme:"#theme#",
+        scrollThreshold: #scrollThreshold#,
+        background:"#backgroundcolor#",
+        position: { v:"#pver#", h:"#phor#" },
+        leftpadding:"#leftpadding#",
+        rightpadding:"#rightpadding#",
+        delay:"#optindelay#",
+        title:"#optintitle#",
+        message:"#optinmessage#",
+        denytimespan:"#denytimespan#",
+        allowButton: {
+            bgcolor:"#allowbgcolor#",
+            fontcolor:"#allowfontcolor#",
+            text:"#allowtext#"
+        },
+        denyButton: {
+            bgcolor:"#denybgcolor#",
+            fontcolor:"#denyfontcolor#",
+            text:"#denytext#"
+        }
+    },
+    welcomeNotification: {
+        enable:"#wnenable#",
+        title:"#wntitle#",
+        message:"#wnmessage#",
+        icon:"#wnicon#",
+        actionsButton: "",
+        url:"#wnurl#",
+        utmparams:"#wnutmparams#"
+    },
+    pubkey : "#pubkey#",
+    swPath : "/relatedpush_sw.js"
+};

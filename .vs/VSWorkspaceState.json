@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\firebaseJs"
   ],
-  "SelectedNode": "\\C:\\Users\\alican.metin\\Source\\Repos\\web-push-simple-app-ui-v2",
+  "SelectedNode": "\\firebase-messaging-sw.js",
   "PreviewInSolutionExplorer": false
 }
