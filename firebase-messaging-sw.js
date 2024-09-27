@@ -1,5 +1,9 @@
-﻿importScripts('https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/8.0.0/firebase-messaging.js');
+﻿//importScripts('https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js');
+//importScripts('https://www.gstatic.com/firebasejs/10.13.2/firebase-messaging.js');
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+import { firebase } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-messaging.js";
+
 
 //firebase.initializeApp({
 //    apiKey: "YOUR_API_KEY",
@@ -9,8 +13,19 @@ importScripts('https://www.gstatic.com/firebasejs/8.0.0/firebase-messaging.js');
 //    messagingSenderId: "YOUR_SENDER_ID",
 //    appId: "YOUR_APP_ID"
 //});
+const firebaseConfig = {
+    apiKey: "AIzaSyAm8lQv0jp-zNaDuqpEYvOXnzU-vYyG-n0",
+    authDomain: "test-project-for-notific-b60f2.firebaseapp.com",
+    projectId: "test-project-for-notific-b60f2",
+    storageBucket: "test-project-for-notific-b60f2.appspot.com",
+    messagingSenderId: "20890794400",
+    appId: "1:20890794400:web:ae5e418027010d02d0ccc5",
+    measurementId: "G-XQZ50EJ8YK"
+};
 
-const messaging = firebase.messaging();
+
+const app = initializeApp(firebaseConfig);
+const messaging = getMessaging(app);
 
 messaging.requestPermission().then(function () {
     console.log('Bildirim izni alındı.');
