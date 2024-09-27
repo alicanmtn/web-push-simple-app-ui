@@ -1,6 +1,6 @@
 ﻿if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/firebase-messaging-sw.js').then(function (registration) {
+        navigator.serviceWorker.register('./firebase-messaging-sw.js').then(function (registration) {
             console.log('Service Worker kayıt işlemi başarılı:', registration.scope);
         }, function (err) {
             console.log('Service Worker kayıt işlemi başarısız:', err);
