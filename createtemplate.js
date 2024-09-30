@@ -1,5 +1,5 @@
-﻿import fs from "fs";
-import config from "./config";
+﻿const fs = require("fs");
+var { config } = require("./config");
 
 var sdk_path = config.path.sdkpath;
 var template = config.path.output.template;
