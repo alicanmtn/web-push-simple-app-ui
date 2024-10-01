@@ -1,4 +1,7 @@
 ﻿window.addEventListener("load", async () => {
+
+
+
   const subscribeButton = document.querySelector("#subscribeButton");
 
   //register service worker

@@ -1,4 +1,4 @@
-import { path } from ("node:path");
+import { path } from "node:path";
 
 let app_base = path.dirname(require.main.filename);
 
