@@ -21,4 +21,4 @@ config.path.output.template_base64 =
 config.path.output.template =
     "\\dist\\template\\relatedpush_sdk.txt";
 
-module.exports = { config };
+export { config };
