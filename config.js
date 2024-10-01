@@ -1,4 +1,4 @@
-var path = require("path");
+import { path } from "path";
 
 let app_base = path.dirname(require.main.filename);
 
