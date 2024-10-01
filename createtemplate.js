@@ -1,4 +1,4 @@
-﻿import { config } from './config';
+﻿import { config } from "/config";
 //const fs = require('fs');
 
 var sdk_path = config.path.sdkpath;
