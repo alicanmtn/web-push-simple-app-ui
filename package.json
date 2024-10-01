@@ -1,5 +1,5 @@
 {
-  "name": "web-push-simple-app-ui-v2",
+  "name": "web-push-simple-app-ui",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -12,9 +12,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alicanmtn/web-push-simple-app-ui/issues"
-  },
-  "homepage": "https://github.com/alicanmtn/web-push-simple-app-ui#readme"
+  "license": "ISC"
 }
