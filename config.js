@@ -1,4 +1,4 @@
-var path = require("path");
+var path = require("node:path");
 
 let app_base = path.dirname(require.main.filename);
 
